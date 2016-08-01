@@ -24,15 +24,9 @@ NEWSPIDER_MODULE = 'douban.spiders'
 #TELNETCONSOLE_ENABLED=False
 
 # Override the default request headers:
-DEFAULT_REQUEST_HEADERS = {
-   "accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-   "Accept-Encoding":"gzip, deflate, sdch, br",
-   "Accept-Language":"en-US,en;q=0.8",
-   "Cache-Control":"max-age=0",
-   "Connection":"keep-alive",
-#   "Host":"www.douban.com",
-   "User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0"
-}
+#DEFAULT_REQUEST_HEADERS = {
+#   "User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0"
+#}
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
@@ -40,20 +34,23 @@ DEFAULT_REQUEST_HEADERS = {
 #    'douban.middlewares.MyCustomSpiderMiddleware': 543,
 #}
 
+
+
 # Retry many times since proxies often fail
-#RETRY_TIMES = 10
+RETRY_TIMES = 10
 # Retry on most error codes since proxies fail for different reasons
-#RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
+RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
 #	'scrapy.contrib.downloadermiddleware.retry.RetryMiddleware': 90,
 #	'douban.randomproxy.RandomProxy': 100,
 #	'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': 110,
-	'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware':345,
+	'douban.MyMiddlewares.CustomUserAgentMiddleware':345,
 }
+PROXY_LIST = '/home/vincent/crawl_web/douban/proxy_list.txt'
 
-#PROXY_LIST = '/home/vincent/gitrep/douban/list.txt'
+
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
