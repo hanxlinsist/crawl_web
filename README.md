@@ -23,7 +23,15 @@ Scrapy : 1.0.5
 
 上述命令运行后，会在你的当前目录下产生books.csv文件。具体内容请参考：[books.csv](https://github.com/hanxlinsist/crawl_web/blob/master/douban/books.csv)
 
+## 定制你自己的爬虫
 
+- scrapy startproject 你的工程名
+- 在你自己工程的spiders目录下写自己的爬虫。（可以参考我的[DoubanSpider.py](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/spiders/DoubanSpider.py)）
+- 修改你自己的设置。（可以参考我的[settings.py](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/settings.py)）
 
+详细的设置以及代码的含义请参考：[Scrapy实战之抓取豆瓣图书](http://blog.csdn.net/xlinsist/article/details/52082626)
 
+## 尾言
+
+这个项目只是一个开始，还有非常多要完善的地方。如果大家对这个项目有兴趣的话，可以联系我，我们一起完善这个项目。
 
