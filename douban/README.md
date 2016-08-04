@@ -31,8 +31,17 @@ myproject/
         spider2.py
         ...
 
+# 创建一个模板spider. template 包括： basic、crawl、xmlfeed、csvfeed
+# name : 作为spider的名字。domain ： 用于生成spider的start_urls和allowed_domains属性
+scrapy genspider [-t template] <name> <domain>
+
+# 命令要放在工程内，从而模仿你spider加载网页的方式，查看headers
+scrapy fetch --nolog --headers https://www.douban.com/
+
 ``` 
-  
+# 定制自己的命令
+
+具体请参考：[Custom project commands](http://doc.scrapy.org/en/1.1/topics/commands.html#custom-project-commands)
   
   
   
