@@ -12,6 +12,13 @@ class DoubanSpider(CrawlSpider):
     allowed_domains = ['douban.com']
     start_urls = ['https://book.douban.com/tag/']
     #start_urls = ['https://book.douban.com/tag/%E4%BA%92%E8%81%94%E7%BD%91']
+    
+    # A dictionary of settings that will be overridden from the project wide configuration when running this spider. 
+    #It must be defined as a class attribute since the settings are updated before instantiation.
+    custom_settings = {
+    	"DEPTH_LIMIT" : 3,
+    	"DOWNLOAD_TIMEOUT" : 190
+    	}
 
     #def start_requests(self):
     #    headers = {
