@@ -24,3 +24,10 @@ class BookInfoPipeline(object):
             else:
                 raise DropItem("Missing name or author in %s" % item)
 
+class IDPipeline(object):
+    def process_item(self, item, spider):
+
+	item["ID"] = ''.join(item["ID"])
+        item["ID"] = re.findall(r'\d+', item["ID"]) # 从链接（https://www.douban.com/people/85234374/）中提取ID
+	
+	return item

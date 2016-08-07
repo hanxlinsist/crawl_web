@@ -5,7 +5,7 @@ import scrapy
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from scrapy.selector import Selector
-from douban.items import DoubanItem
+from douban.items import BookItem
 
 class DoubanSpider(CrawlSpider):
     name = "douban"
@@ -38,7 +38,7 @@ class DoubanSpider(CrawlSpider):
     ]
 
     def parse_item(self, response):
-        item = DoubanItem()
+        item = BookItem()
         sel = Selector(response)
         e = sel.xpath("//div[@id='wrapper']")
         item['name'] = e.xpath("./descendant::h1/descendant::span/text()").extract()

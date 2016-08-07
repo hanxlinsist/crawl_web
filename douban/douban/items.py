@@ -8,9 +8,7 @@
 import scrapy
 
 
-class DoubanItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
+class BookItem(scrapy.Item):
 
     # 书名
     name = scrapy.Field()
@@ -42,19 +40,21 @@ class DoubanItem(scrapy.Item):
     # 评论数
     commentNum = scrapy.Field()
 
+    # 标签
+    tag = scrapy.Field()
 
+    # 最热门短评
+    review = scrapy.Field()
 
+    # 最热门短评时间
+    reviewTime = scrapy.Field()
 
+    # 最热门短评人网名
+    reviewName = scrapy.Field()
 
-    # 出版年
-    #year = scrapy.Field()
+    # 最热门短评人ID. 比如：https://www.douban.com/people/85234374/   ID为85234374
+    ID = scrapy.Field()
 
-    # 出版社
-    #publisher = scrapy.Field()
-
-    # 页数
-    #pageNum = scrapy.Field()
-
-    # 价格
-    #price = scrapy.Field()
+    # 短评的有用数
+    reviewHelpfulNum = scrapy.Field()
 
