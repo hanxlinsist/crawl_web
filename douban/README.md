@@ -1,3 +1,29 @@
+# 介绍
+
+这个工程抓取了豆瓣一些流行书籍，它包括书的书名、作者、书的相关信息、豆瓣评分以及关于书籍的评论等等。具体的信息请参考[items.py](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/items.py). 
+
+# 抓取过程简介
+
+1. 抽取豆瓣书籍[Tag页面](https://book.douban.com/tag/)的所有Tag链接。
+2. 把对应Tag书籍按评价排序。
+3. 抽取前10页的所有书籍。
+
+由于抓取需要很多的时间，我只抽取每个Tag对应的前10页最受欢迎的书籍。抓取这些内容，我的电脑将近跑了两天。一共抓取了18474条数据。如果你想抓取更多的数据，只需修改一点代码就可以抓取你自己想要的内容了。
+
+# 抓取内容部分截图
+
+![豆瓣截图](./images/ss1.png)
+![豆瓣截图](./images/ss2.png)
+![豆瓣截图](./images/ss3.png)
+![豆瓣截图](./images/ss4.png)
+![豆瓣截图](./images/ss5.png)
+
+
+如果你想要我完整的books.csv文件，可以在我的博客[留言](http://blog.csdn.net/xlinsist/article/details/52107920)，我抽空会发给你。
+
+
+
+
 # spiders运行原理
 
 1. You start by generating the initial Requests to crawl the first URLs, and specify a callback function to be called with the response downloaded from those requests.The first requests to perform are obtained by calling the start_requests() method which (by default) generates Request for the URLs specified in the start_urls and the parse method as callback function for the Requests.
