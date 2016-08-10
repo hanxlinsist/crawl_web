@@ -21,6 +21,16 @@
 
 如果你想要我完整的books.csv文件，可以在我的博客[留言](http://blog.csdn.net/xlinsist/article/details/52107920)，我抽空会发给你。
 
+# 高级设置
+
+1. 用代理IP抓取网页
+   - 打开这[三行](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/settings.py#L27)注释。
+   - 把这个代理列表路径修改成你自己的路径。
+2. 修改request header的User Agent
+   - 修改[UserAgents.py](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/UserAgents.py)
+3. 启用AutoThrottle extension（extension说明：这个扩展会自动节流抓取网站的速度，基于Scrapy server和你要抓取网站的负载）
+   - 去掉[这行](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/settings.py#L49)的注释
+   - 把AUTOTHROTTLE_ENABLED设置为True
 
 
 
