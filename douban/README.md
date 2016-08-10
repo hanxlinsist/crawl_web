@@ -25,7 +25,7 @@
 
 1. 用代理IP抓取网页
    - 打开这[三行](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/settings.py#L27)注释。
-   - 把这个代理列表路径修改成你自己的路径。
+   - 把这个[代理列表](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/settings.py#L34)路径修改成你自己的路径。
 2. 修改request header的User Agent
    - 修改[UserAgents.py](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/UserAgents.py)
 3. 启用AutoThrottle extension（extension说明：这个扩展会自动节流抓取网站的速度，基于Scrapy server和你要抓取网站的负载）
