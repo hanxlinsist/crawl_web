@@ -19,8 +19,6 @@
 ![豆瓣截图](./images/ss5.png)
 
 
-如果你想要我完整的books.csv文件，可以在我的博客[留言](http://blog.csdn.net/xlinsist/article/details/52107920)，我抽空会发给你。
-
 # 高级设置
 
 1. 用代理IP抓取网页
