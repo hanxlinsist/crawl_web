@@ -29,6 +29,18 @@
 3. 启用AutoThrottle extension（extension说明：这个扩展会自动节流抓取网站的速度，基于Scrapy server和你要抓取网站的负载）
    - 去掉[这行](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/settings.py#L49)的注释
    - 把AUTOTHROTTLE_ENABLED设置为True
+4. 定制每个spider的经过的pipeline
+   - 在[pipelines.py](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/pipelines.py)中定义自己要使用的pipelines
+   - 在process_item方法上面加上@check_spider_pipeline
+   - 在自己的spider中加入[pipeline属性](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/spiders/BookSpider.py#L17)
+
+# 测试spider
+
+为了以后开发相应的功能方便，我写了一个测试[spider](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/spiders/TestSpider.py),这个spider只抓取一本图书，你可以用命令行传递你想要抓取的图书ID. 比如，我要抓取图书的网址为'https://book.douban.com/subject/1082154/'，那么其中的数字就是图书的ID. 
+
+运行测试spider的命令如下：
+
+   scrapy crawl douban.test -o test.csv -t csv -a bookid=你想要抓取图书的ID 
 
 
 
