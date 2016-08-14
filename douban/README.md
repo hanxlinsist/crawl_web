@@ -40,7 +40,7 @@
 
 运行测试spider的命令如下：
 
-   scrapy crawl douban.test -o test.csv -t csv -a bookid=你想要抓取图书的ID 
+    scrapy crawl douban.test -o test.csv -t csv -a bookid=你想要抓取图书的ID 
 
 
 
