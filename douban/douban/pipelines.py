@@ -7,8 +7,11 @@
 
 from scrapy.exceptions import DropItem
 import re
+from MyTools import check_spider_pipeline
 
 class BookInfoPipeline(object):
+
+    @check_spider_pipeline
     def process_item(self, item, spider):
         str = ""
         for e in item["bookinfo"]:
@@ -24,10 +27,13 @@ class BookInfoPipeline(object):
             else:
                 raise DropItem("Missing name or author in %s" % item)
 
-class IDPipeline(object):
-    def process_item(self, item, spider):
 
-	item["ID"] = ''.join(item["ID"])
-        item["ID"] = re.findall(r'\d+', item["ID"]) # 从链接（https://www.douban.com/people/85234374/）中提取ID
-	
+class IDPipeline(object):
+
+    @check_spider_pipeline
+    def process_item(self, item, spider):
+	id_str = ''.join(item["ID"]) # 把列表中的要元素合并成一个字符串
+	url_list = filter(len, id_str.split('/')) # 过滤列表中的空串
+	item["ID"] = url_list[len(url_list) - 1] # 提取ID
+
 	return item
