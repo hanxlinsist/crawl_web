@@ -8,6 +8,7 @@ from scrapy.selector import Selector
 from douban.items import BookItem
 from douban.pipelines import IDPipeline
 
+# 这个spider的作用是测试一些新加入的功能，它只抓取一本书。
 class TestSpider(scrapy.Spider):
     name = "douban.test"
     allowed_domains = ['douban.com']
