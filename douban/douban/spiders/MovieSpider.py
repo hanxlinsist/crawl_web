@@ -21,14 +21,8 @@ class DoubanSpider(CrawlSpider):
 
 
     rules = [
-        # Extract links matching 'category.php' (but not matching 'subsection.php')
-        # and follow links from them (since no callback means follow=True by default).
-        #Rule(LinkExtractor(allow=('/tag/[^/]+$', )), follow=True),
         Rule(LinkExtractor(allow=('/tag/互联网$', )), follow=True),
-
-        # Extract links matching 'item.php' and parse them with the spider's method parse_item
         Rule(LinkExtractor(allow=('\/subject\/\d+', )), callback='parse_item'),
-       # Rule(LinkExtractor(allow=('/subject/6082808', )), callback='parse_item'),
     ]
 
     def parse_item(self, response):
