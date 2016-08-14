@@ -6,16 +6,23 @@ import numpy as np
 import scrapy
 from scrapy.selector import Selector
 from douban.items import BookItem
-from douban.pipelines import IDPipeline
+import douban.pipelines as pipe
 
-# 这个spider的作用是测试一些新加入的功能，它只抓取一本书。
+# 这个spider的作用是测试一些新加入的功能，它只抓取一本书
 class TestSpider(scrapy.Spider):
     name = "douban.test"
     allowed_domains = ['douban.com']
-    start_urls = ['https://book.douban.com/subject/6082808/']
+    
+    # bookid为crawl命令传递过来的参数
+    def __init__(self, bookid=None, *args, **kwargs):
+        super(TestSpider, self).__init__(*args, **kwargs)
+        if bookid == None:
+            bookid = '1082154'
+        self.start_urls = ['https://book.douban.com/subject/%s' % bookid]
 
     pipeline = set([
-       IDPipeline,
+       pipe.IDPipeline,
+       pipe.BookInfoPipeline,
     ])
 
     # 抽取每本书籍，并将其存入对应的BookItem
