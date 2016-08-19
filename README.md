@@ -1,18 +1,23 @@
-# crawl_web
+# 介绍
 
-用Scrapy来抓取豆瓣图书，你可以参考这个例子抓取你自己想要的网站。
-
-**不要用它做非法的事情！！！**
+这个项目主要用Scrapy抓取目标网站，每个目录下都抓取特定的网站。由于网站类型不同，因此每个特定的spider都有不一样的功能，不同的配置，不同过滤数据的方式。当然了，参照这个仓库的例子，你完全可以定制你自己的爬虫，抓取你自己想要的网站。
 
 ___
 
-## 版本
+# 版本
 
-Python ： 2.7.10
+下面，是我写这个项目时用到的版本：
 
-Scrapy : 1.0.5
+Python : **2.7.12**
 
-## 运行爬虫
+Scrapy : **1.1.0**
+
+numpy : **1.11.1**
+
+
+# 运行爬虫
+
+**对应的目录有相应的运行说明**
 
     git clone https://github.com/hanxlinsist/crawl_web
     cd crawl_web/douban
@@ -23,20 +28,11 @@ Scrapy : 1.0.5
 
 上述命令运行后，会在你的当前目录下产生books.csv文件。具体内容请参考：[books.csv](https://github.com/hanxlinsist/crawl_web/blob/master/douban/books.csv)
 
-## 定制你自己的爬虫
+# 高级特点
 
-- scrapy startproject 你的工程名
-- 在你自己工程的spiders目录下写自己的爬虫。（可以参考我的[DoubanSpider.py](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/spiders/DoubanSpider.py)）
-- 修改你自己的设置。（可以参考我的[settings.py](https://github.com/hanxlinsist/crawl_web/blob/master/douban/douban/settings.py)）
-
-详细的设置以及代码的含义请参考：[Scrapy实战之抓取豆瓣图书](http://blog.csdn.net/xlinsist/article/details/52082626)
-
-## 高级特点
-
-* 代理
-  * 如果你不想用自己的IP地址抓取网站，你可以把代理打开。具体请参考：[Scrapy实战之抓取豆瓣图书](http://blog.csdn.net/xlinsist/article/details/52082626)
-  * 如果你想定义自己的代理列表，修改[proxy_list.txt
-](https://github.com/hanxlinsist/crawl_web/blob/master/douban/proxy_list.txt)
+1. 代理抓取目标网站
+2. 定制自己的请求客户端
+3. 一个项目下的pipelines只过滤相应的Item
 
 ## 尾言
 
