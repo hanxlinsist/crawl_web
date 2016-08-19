@@ -18,6 +18,13 @@
 ![豆瓣截图](./images/ss4.png)
 ![豆瓣截图](./images/ss5.png)
 
+# 运行爬虫
+
+    git clone https://github.com/hanxlinsist/crawl_web
+    cd crawl_web/douban
+    scrapy crawl book.douban -o books.csv -t csv
+    
+我的系统版本是ubuntu 14.04 LTS，如果你是Windows用户，你只需要下载工程的Zip包，进入到crawl_web/douban目录，运行上面的第3条命令就行了。前提是你已经安装了相应的包。
 
 # 高级设置
 
