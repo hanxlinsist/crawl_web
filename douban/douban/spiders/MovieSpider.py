@@ -11,8 +11,8 @@ class DoubanSpider(CrawlSpider):
     name = "douban"
     allowed_domains = ['douban.com']
     start_urls = ['https://book.douban.com/tag/']
-    
-    # A dictionary of settings that will be overridden from the project wide configuration when running this spider. 
+
+    # A dictionary of settings that will be overridden from the project wide configuration when running this spider.
     #It must be defined as a class attribute since the settings are updated before instantiation.
     custom_settings = {
         "DEPTH_LIMIT" : 3,
